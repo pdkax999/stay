@@ -10,8 +10,9 @@
         <li><router-link to="/person" class="item">首页</router-link></li>
         <!-- <li><span>圈子</span></li> -->
         <li><router-link to="/social" class="item">圈子</router-link></li>
-        <li><span>榜单</span></li>
-        <li><Icon icon="gengduo"></Icon></li>
+        <li><router-link to="/core" class="item">榜单</router-link></li>
+        <li><router-link to="/preview" class="item"><Icon icon="gengduo"></Icon></router-link></li>
+        <!-- <li><span>榜单</span></li> -->
       </ul>
     </nav>
      <div class="search">
@@ -78,8 +79,11 @@
        justify-content: space-between;
 
        .item{
+         display: inline-block;
+         height: 100%;
          color: #fff;
          text-decoration: none;
+        //  line-height: 82px;
        }
      }
 

@@ -21,9 +21,13 @@ const  router = new VueRouter({
          path:'/core',
          component: ()=> import('@/page/Core/Core.vue'),
        },
+       {
+         path:'/preview',
+         component: ()=> import('@/page/InfoPreview/InfoPreview.vue'),
+       },
        { // 自动跳转路由
         path: '/',
-        redirect: '/core'
+        redirect: '/preview'
       }
      ]
     }
