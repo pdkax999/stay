@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container">
+  <div class="home-container w">
     <Header></Header>
     <div class="content">
       <div class="menu-left">
@@ -22,7 +22,8 @@
         </ul>
         </div>
         <div class="person-content">
-         <router-view></router-view>
+         <!-- <router-view></router-view> -->
+         <nuxt-child></nuxt-child>
       </div>
       </div>
       
@@ -30,7 +31,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import Header from "../../components/Header/Header.vue";
+  import Header from "@/components/Header/Header.vue";
   export default {
    components:{
      Header
