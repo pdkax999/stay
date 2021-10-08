@@ -47,7 +47,7 @@
       <div class="left">
         <Brief></Brief>
         <div class="focus-wr">
-          <UserList :type="true"></UserList>
+          <UserList :userInfo="categoryUser" ></UserList>
         </div>
 
         <div class="videos">
@@ -127,6 +127,7 @@ import Videos from "@/components/Videos/Videos.vue";
 import EditTrends from "@/components/EditTrends/EditTrends.vue";
 import CardMessage from "@/components/CardMessage/CardMessage.vue";
 import Picture from "@/components/Picture/Picture.vue";
+
 export default {
   components: {
     GuideNav,
@@ -136,6 +137,18 @@ export default {
     EditTrends,
     CardMessage,
     Picture
+  },
+  data(){
+    return {
+      categoryUser:{}
+    }
+  },
+  mounted(){
+    
+   let {categoryUser} = require('../../common/data')
+
+   this.categoryUser =categoryUser
+    
   },
 };
 </script>

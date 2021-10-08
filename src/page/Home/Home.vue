@@ -51,7 +51,6 @@
    
     .menu-left{
       width: 83px;
-      height: 2714px;
       background: #fff;
 
       .menu-list{

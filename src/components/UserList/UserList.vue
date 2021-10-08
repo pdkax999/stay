@@ -7,7 +7,7 @@
     </div>
 
     <div class="guides">
-      <div class="item"  v-if="type">最近加入</div>
+      <div class="item" v-if="type">最近加入</div>
       <div class="item" v-else>最近创建</div>
       <div class="item active">最近欢迎</div>
       <div class="item">最近活跃</div>
@@ -95,10 +95,14 @@
 
 <script type="text/ecmascript-6">
 export default {
+  data() {
+    return {
+      activated: 0,
+    };
+  },
   props: {
-    type: {
-      type: Boolean,
-      required: true,
+    UserList:{
+      type: Object
     },
   },
 };
@@ -107,7 +111,6 @@ export default {
 <style lang='scss'>
 .UserList {
   width: 285px;
-  // height: 466px;
   background-color: #fff;
   border-radius: 10px;
   padding: 0 27px;
@@ -129,7 +132,7 @@ export default {
     display: flex;
     color: #b8b8b8;
     justify-content: space-between;
-
+    cursor: pointer;
     .active {
       color: #000;
       border-bottom: 3px solid #4070c4;

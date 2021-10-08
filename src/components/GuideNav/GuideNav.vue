@@ -45,8 +45,6 @@
   align-items: center;
 }
 
-
-
 .nav-guide{
   width: 100%;
   height: 83px;
