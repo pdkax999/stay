@@ -1,19 +1,16 @@
 <template>
   <div class="EditTrendsWrapper">
     <div class="guideNav">
-      <div class="guide-item active">
+      <div class="guide-item" @click="activated=1" :class="{active:activated==1}">
         <Icon icon="yingfengdongtai"></Icon>
-
         <span>动态</span>
       </div>
-      <div class="guide-item">
+      <div class="guide-item" @click="activated=2" :class="{active:activated==2}">
         <Icon icon="tiezi"></Icon>
-
         <span>帖子</span>
       </div>
-      <div class="guide-item">
+      <div class="guide-item" @click="activated=3" :class="{active:activated==3}">
         <Icon icon="shipin"></Icon>
-
         <span>视屏</span>
       </div>
     </div>
@@ -35,7 +32,15 @@
 </template>
 
 <script type="text/ecmascript-6">
-export default {};
+export default {
+  data(){
+    return {
+      activated:1
+    }
+  }
+
+
+};
 </script>
 
 <style lang='scss'>

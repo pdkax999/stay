@@ -25,6 +25,10 @@ const  router = new VueRouter({
          path:'/preview',
          component: ()=> import('@/page/InfoPreview/InfoPreview.vue'),
        },
+       {
+         path:'/test',
+         component: ()=> import('@/page/test/test.vue'),
+       },
        { // 自动跳转路由
         path: '/',
         redirect: '/preview'

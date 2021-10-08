@@ -67,23 +67,7 @@
           <div class="wra-editTrends">
              <EditTrends></EditTrends>
           </div>
-          <div class="info-category">
-            <div class="left go">
-              <Icon icon="left"></Icon>
-            </div>
-            <div class="container-nav">
-              <ul class="guides">
-                <li class="active">全部</li>
-                <li>热门</li>
-                <li>精华</li>
-                <li>设计经验</li>
-                <li>素材分析</li>
-              </ul>
-            </div>
-            <div class="right go">
-              <Icon icon="right"></Icon>
-            </div>
-          </div>
+          <TrendGuide></TrendGuide>
            <div class="newMessage-wra">
               <span>最新发布</span> <span class="direction"> > </span>
            </div>
@@ -146,6 +130,7 @@ import EditTrends from "@/components/EditTrends/EditTrends.vue";
 import CardMessage from "@/components/CardMessage/CardMessage.vue";
 import Recommend from "@/components/Recommend/Recommend.vue";
 import Picture from "@/components/Picture/Picture.vue";
+import TrendGuide from "@/components/TrendGuide/TrendGuide.vue";
 export default {
   components:{
     GuideNav,
@@ -155,7 +140,8 @@ export default {
      EditTrends,
      CardMessage,
      Recommend,
-     Picture
+     Picture,
+     TrendGuide
   }
 };
 </script>
@@ -295,9 +281,10 @@ export default {
 
   .wra-editTrends{
     margin-bottom: 15px;
+    cursor: pointer;
   }
 
-  .info-category{
+/*   .info-category{
     width: 100%;
     height: 82px;
     background-color: #fff;
@@ -310,8 +297,8 @@ export default {
       font-size: 20px;
       @include FlexCenter();
     }
-    
-    .container-nav{
+     */
+/*     .container-nav{
       color: #999;
       width: 500px;
 
@@ -332,8 +319,8 @@ export default {
           }
        }
     }
-    }
-  }
+    } */
+  // }
   .newMessage-wra{
     width: 100%;
     height: 45px;

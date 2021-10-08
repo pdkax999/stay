@@ -50,9 +50,9 @@
     display: flex;
    
     .menu-left{
-      width: 83px;
+      width: 83px !important;
       background: #fff;
-
+      flex: none;
       .menu-list{
         width: 100%;
         display: flex;

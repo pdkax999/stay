@@ -1,70 +1,144 @@
 <template>
   <div class="info-category">
-    <div class="left go">
+    <div
+      class="left go"
+      @click="showRight"
+      :class="{ active: moveDistance > 0 }"
+    >
       <Icon icon="left"></Icon>
     </div>
     <div class="container-nav">
-      <ul class="guides">
-        <li class="active">全部</li>
-        <li>热门</li>
-        <li>精华</li>
-        <li>设计经验</li>
-        <li>素材分析</li>
+      <ul class="guides" :style="{ left: moveLeft }">
+        <li
+          :class="{ active: actived == index }"
+          v-for="(menu, index) in menuList"
+          :key="index"
+          @click="selectMenu(index)"
+        >
+          {{ menu }}
+        </li>
       </ul>
     </div>
-    <div class="right go">
+    <div
+      class="right go"
+      @click="showLeft"
+      :class="{ active: menuList.length - showMenuItem > moveDistance }"
+    >
       <Icon icon="right"></Icon>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-export default {};
+export default {
+  data() {
+    return {
+      menuList: [
+        "全部",
+        "热门",
+        "精华",
+        "设计经验",
+        "素材分析",
+        "分析",
+        "打架",
+      ],
+      // 选中标识
+      actived: 0,
+      moveDistance: 0,
+      // 展示多少个菜单
+      showMenuItem: 5,
+    };
+  },
+  computed: {
+    moveLeft() {
+      const { moveDistance } = this;
+
+      let result = moveDistance * -20 + "%";
+
+      return result;
+    },
+  },
+  methods: {
+    showLeft() {
+      const { menuList, showMenuItem, moveDistance } = this;
+
+      let maxMoove = menuList.length - showMenuItem;
+
+      if (maxMoove > moveDistance) {
+        this.moveDistance++;
+      }
+    },
+    showRight() {
+      let { moveDistance } = this;
+      if (moveDistance > 0) {
+        this.moveDistance--;
+      }
+    },
+    selectMenu(i) {
+      this.actived = i;
+      const { menuList, showMenuItem, moveDistance } = this;
+
+      let maxMoove = menuList.length - showMenuItem;
+      if (maxMoove > moveDistance) {
+        this.moveDistance = i;
+      }
+    },
+  },
+};
 </script>
 
 <style lang='scss'>
-
-@mixin FlexCenter($jcont:center) {
+@mixin FlexCenter($jcont: center) {
   display: flex;
   justify-content: $jcont;
   align-items: center;
 }
 
-.info-category{
-    width: 100%;
-    height: 82px;
-    background-color: #fff;
-    border-radius: 10px;
-    display: flex;
-    .go{
-      width: 40px;
-      height: 100%;
-      color: #999;
-      font-size: 20px;
-      @include FlexCenter();
-    }
-    
-    .container-nav{
-      color: #999;
-      width: 500px;
+.info-category {
+  width: 100%;
+  height: 82px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  cursor: pointer;
+  .go {
+    width: 40px;
+    height: 100%;
+    color: #999;
+    font-size: 20px;
+    @include FlexCenter();
 
-      .guides{
+    &.active {
+      color: #000;
+    }
+  }
+
+  .container-nav {
+    color: #999;
+    width: 500px;
+    position: relative;
+    overflow: hidden;
+    .guides {
       display: flex;
       width: 100%;
       font-size: 18px;
-       @include FlexCenter(space-between);
+      @include FlexCenter(space-between);
+      position: absolute;
       height: 100%;
-       li{
-         height: 100%;
-         padding: 0 20px;
-          @include FlexCenter();
-
-          &.active{ 
-            font-weight: bold;
-            border-bottom: 2px solid #2C74EA;
-          }
-       }
-    }
+      left: 0;
+      top: 0;
+      transition: all 0.5s;
+      li {
+        height: 100%;
+        width: (100% / 5);
+        flex: none;
+        @include FlexCenter();
+        &.active {
+          font-weight: bold;
+          border-bottom: 2px solid #2c74ea;
+        }
+      }
     }
   }
+}
 </style>

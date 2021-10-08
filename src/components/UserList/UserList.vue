@@ -2,90 +2,27 @@
   <!-- 关注| 圈子 -->
   <div class="UserList">
     <div class="title">
-      <span v-if="type">关注 <span class="num">99</span></span>
-      <span v-else>圈子</span>
+      <span>{{userInfo.title}} <span class="num">{{userInfo.message}}</span></span>
     </div>
 
     <div class="guides">
-      <div class="item" v-if="type">最近加入</div>
-      <div class="item" v-else>最近创建</div>
-      <div class="item active">最近欢迎</div>
-      <div class="item">最近活跃</div>
+      <div class="item" 
+      :class="{active:index==activated}" v-for="(item,index) in userInfo.menuList" :key="index"
+      @click="activated=index">最近欢迎</div>
     </div>
 
-    <div class="userList">
-      <li class="user">
+    <div class="userList" v-if="userInfo.categoryUserList">
+      <li class="user" v-for="(user,index) in userInfo.categoryUserList[activated]" :key="index">
         <div class="avatarWr">
           <Avatar></Avatar>
         </div>
         <div class="info">
-          <span class="name">派大星</span>
-          <span>产品经理</span>
+          <span class="name">{{user.name}}</span>
+          <span>{{user.trait}}</span>
         </div>
         <div class="iconWr">
-          <div class="Wricon">
-            <Icon icon="xiaolianmanyifuwu"></Icon>
-          </div>
-        </div>
-      </li>
-      <li class="user">
-        <div class="avatarWr">
-          <Avatar></Avatar>
-        </div>
-        <div class="info">
-          <span class="name">派大星</span>
-          <span>产品经理</span>
-        </div>
-        <div class="iconWr">
-          <div class="Wricon">
-            <Icon icon="xiaolianmanyifuwu"></Icon>
-          </div>
-        </div>
-      </li>
-      <li class="user">
-        <div class="avatarWr">
-          <Avatar></Avatar>
-        </div>
-        <div class="info">
-          <span class="name">派大星</span>
-          <span>产品经理</span>
-        </div>
-        <div class="iconWr">
-          <div class="Wricon">
-            <Icon icon="xiaolianmanyifuwu"></Icon>
-          </div>
-        </div>
-      </li>
-      <li class="user">
-        <div class="avatarWr">
-          <Avatar></Avatar>
-        </div>
-        <div class="info">
-          <span class="name">派大星</span>
-          <span>产品经理</span>
-        </div>
-        <div class="iconWr">
-          <div class="Wricon">
-            <Icon icon="xiaolianmanyifuwu"></Icon>
-          </div>
-        </div>
-      </li>
-      <li class="user">
-        <div class="avatarWr">
-          <Avatar></Avatar>
-        </div>
-        <div class="info">
-          <span class="name"
-            >派大星
-            <span class="vip">
-              <Icon icon="vip"></Icon>
-            </span>
-          </span>
-          <span>产品经理</span>
-        </div>
-        <div class="iconWr">
-          <div class="Wricon">
-            <Icon icon="xiaolianmanyifuwu"></Icon>
+          <div class="Wricon" :class="{[user.color]:true}">
+            <Icon icon="xiaolian"></Icon>
           </div>
         </div>
       </li>
@@ -97,13 +34,24 @@
 export default {
   data() {
     return {
-      activated: 0,
+      activated: 2,
     };
   },
   props: {
-    UserList:{
-      type: Object
+    userInfo:{
+      type: Object,
+      default: function () {
+        let {categoryUser} = require('@/common/data')
+        return categoryUser
+      
+      }
     },
+  },
+  mounted() {
+    
+    console.log(this.userInfo);
+    
+
   },
 };
 </script>
@@ -116,6 +64,7 @@ export default {
   padding: 0 27px;
   color: #000;
   overflow: hidden;
+
 
   .title {
     margin-top: 30px;
@@ -183,11 +132,18 @@ export default {
           height: 45px;
           font-size: 30px;
           display: flex;
-          //  justify-content: center;
-          //  align-items: center;
           color: #c2c2c2;
-          border: 1px solid #999;
+          border: 1px solid #EEEEEE;
           border-radius: 10px;
+
+            &.bg1{
+              color: #fff;
+              background-color: #FF5B5A;
+            }
+            &.bg2{
+              color: #fff;
+              background-color: #2C74EA;
+            }
 
           .icon {
             margin: auto;

@@ -12,6 +12,7 @@
         </li>
       </ul>
     </div>
+    
     <div class="go rights" @click="showRight" :class="{active: menuList.length - 7>current}">
       <Icon icon="right"></Icon>
     </div>
@@ -123,6 +124,7 @@ export default {
   font-size: 25px;
   color: #b8b8b8;
   display: flex;
+  
   .go {
     width: 50px;
     height: 100%;

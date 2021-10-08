@@ -6,16 +6,48 @@
     '最近欢迎',
     '最近活跃'
   ],
-  categoryInfo: [
+  categoryUserList: [
    [
       {
         name: "派大星",
-        trait: "前端工程师",
+        trait: "后端工程师",
         avatar: "",
         icon: "xiaolianmanyifuwu",
         isVip: false,
-        color: "#FF5B5A",
-      }
+        color: "bg1",
+      },
+      {
+        name: "派大星",
+        trait: "后端工程师",
+        avatar: "",
+        icon: "xiaolianmanyifuwu",
+        isVip: false,
+        color: "bg1",
+      },
+      {
+        name: "派大星",
+        trait: "后端工程师",
+        avatar: "",
+        icon: "xiaolianmanyifuwu",
+        isVip: false,
+        color: "bg1",
+      },
+      {
+        name: "派大星",
+        trait: "后端工程师",
+        avatar: "",
+        icon: "xiaolianmanyifuwu",
+        isVip: false,
+        color: "bg2",
+      },
+      {
+        name: "派大星",
+        trait: "后端工程师",
+        avatar: "",
+        icon: "xiaolianmanyifuwu",
+        isVip: false,
+        color: "bg1",
+      },
     ],
     [
       {
@@ -24,17 +56,81 @@
         avatar: "",
         icon: "xiaolianmanyifuwu",
         isVip: false,
-        color: "#FF5B5A",
-      }
+        color: "",
+      },
+      {
+        name: "海绵宝宝",
+        trait: "前端工程师",
+        avatar: "",
+        icon: "xiaolianmanyifuwu",
+        isVip: false,
+        color: "",
+      },
+      {
+        name: "海绵宝宝",
+        trait: "前端工程师",
+        avatar: "",
+        icon: "xiaolianmanyifuwu",
+        isVip: false,
+        color: "bg1",
+      },
+      {
+        name: "海绵宝宝",
+        trait: "前端工程师",
+        avatar: "",
+        icon: "xiaolianmanyifuwu",
+        isVip: false,
+        color: "bg2",
+      },
+      {
+        name: "海绵宝宝",
+        trait: "前端工程师",
+        avatar: "",
+        icon: "xiaolianmanyifuwu",
+        isVip: false,
+        color: "",
+      },
     ],
     [
       {
         name: "痞老板",
         trait: "前端工程师",
         avatar: "",
-        icon: "xiaolianmanyifuwu",
+        icon: "xiaolian",
         isVip: false,
-        color: "#FF5B5A",
+        color: ""
+      },
+      {
+        name: "痞老板",
+        trait: "前端工程师",
+        avatar: "",
+        icon: "xiaolian",
+        isVip: false,
+        color: "bg1"
+      },
+      {
+        name: "痞老板",
+        trait: "前端工程师",
+        avatar: "",
+        icon: "xiaolian",
+        isVip: false,
+        color: "bg2"
+      },
+      {
+        name: "痞老板",
+        trait: "前端工程师",
+        avatar: "",
+        icon: "xiaolian",
+        isVip: false,
+        color: "bg1"
+      },
+      {
+        name: "痞老板",
+        trait: "前端工程师",
+        avatar: "",
+        icon: "xiaolian",
+        isVip: false,
+        color: ""
       }
     ]
   ]

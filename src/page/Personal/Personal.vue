@@ -140,7 +140,8 @@ export default {
   },
   data(){
     return {
-      categoryUser:{}
+      categoryUser:{},
+      activated:1
     }
   },
   mounted(){

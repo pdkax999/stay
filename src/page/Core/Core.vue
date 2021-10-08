@@ -12,7 +12,7 @@
         <div class="edit">
           <EditTrends></EditTrends>
         </div>
-        <TrendGuide></TrendGuide>
+        <TrendGuide class="trendUide"></TrendGuide>
         <CardMessage>
           <div class="content-wap">
             <p>
@@ -128,6 +128,11 @@ export default {
     justify-content: space-between;
   }
 }
+.trendUide{
+  
+  margin-bottom: 15px;
+  cursor: pointer;
+  }
 
 .cardCenter {
   .edit {
