@@ -46,7 +46,7 @@
 
       <div class="left">
         <Brief></Brief>
-        <div class="focusWr">
+        <div class="focus-wr">
           <UserList :type="true"></UserList>
         </div>
 
@@ -263,7 +263,7 @@ export default {
 .dashboard {
   display: flex;
   justify-content: space-between;
-  .focusWr {
+  .focus-wr {
     margin-top: 15px;
   }
 }
