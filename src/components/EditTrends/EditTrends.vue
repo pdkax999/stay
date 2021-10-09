@@ -1,15 +1,27 @@
 <template>
   <div class="EditTrendsWrapper">
     <div class="guideNav">
-      <div class="guide-item" @click="activated=1" :class="{active:activated==1}">
+      <div
+        class="guide-item"
+        @click="activated = 1"
+        :class="{ active: activated == 1 }"
+      >
         <Icon icon="yingfengdongtai"></Icon>
         <span>动态</span>
       </div>
-      <div class="guide-item" @click="activated=2" :class="{active:activated==2}">
+      <div
+        class="guide-item"
+        @click="activated = 2"
+        :class="{ active: activated == 2 }"
+      >
         <Icon icon="tiezi"></Icon>
         <span>帖子</span>
       </div>
-      <div class="guide-item" @click="activated=3" :class="{active:activated==3}">
+      <div
+        class="guide-item"
+        @click="activated = 3"
+        :class="{ active: activated == 3 }"
+      >
         <Icon icon="shipin"></Icon>
         <span>视屏</span>
       </div>
@@ -21,11 +33,15 @@
 
     <div class="footer">
       <div class="opction">
-        <!-- icon-xiangji1 -->
-        <Icon icon="xiangji1"></Icon>
-        <Icon icon="ren"></Icon>
+        <Icon icon="xiangji1"  @click.native="menuActive=1" :class="{active:menuActive==1}"></Icon>
+        <Icon icon="ren" @click.native="menuActive=2" :class="{active:menuActive==2}"></Icon>
+        <Icon icon="ren" @click.native="menuActive=3" :class="{active:menuActive==3}"></Icon>
+        <Icon icon="ren" @click.native="menuActive=4" :class="{active:menuActive==4}"></Icon>
       </div>
-      <div class="btn">发布</div>
+      <div class="action">
+        <span class="more">更多设置</span>
+        <div class="btn">发布</div>
+      </div>
       <div class="picture">照片</div>
     </div>
   </div>
@@ -33,17 +49,16 @@
 
 <script type="text/ecmascript-6">
 export default {
-  data(){
+  data() {
     return {
-      activated:1
-    }
-  }
-
-
+      activated: 1,
+       menuActive:1
+    };
+  },
 };
 </script>
 
-<style lang='scss'>
+<style lang='scss' >
 .EditTrendsWrapper {
   width: 580px;
   height: 310px;
@@ -56,6 +71,7 @@ export default {
     width: 100%;
     height: 65px;
     font-size: 20px;
+    border-bottom: #eeeef0 1px solid;
     // background-color:pink;
 
     .guide-item {
@@ -67,6 +83,7 @@ export default {
       position: relative;
       color: #999;
       cursor: pointer;
+      border-bottom: transparent 5px solid;
       .icon {
         margin-right: 10px;
 
@@ -85,7 +102,7 @@ export default {
       }
 
       &.active {
-        border-bottom: #2c74ea 2px solid;
+        border-bottom: #2c74ea 5px solid;
       }
     }
   }
@@ -93,18 +110,19 @@ export default {
   .editWr {
     width: 100%;
     height: 160px;
-
     padding: 23px 32px 16px 32px;
     position: relative;
+
     .edit {
       width: 100%;
       height: 100%;
       resize: none;
     }
+
     .textNum {
       position: absolute;
-      bottom: 0;
-      right: 0;
+      bottom: 20px;
+      right: 30px;
       color: #999;
     }
   }
@@ -116,16 +134,30 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #999;
+    border-top: 1px solid #eeeef0;
     position: relative;
+
     .opction {
       color: #999;
       font-size: 30px;
-      .icon:first-child {
+      display: flex;
+      align-items: flex-end;
+      .icon {
         margin-right: 12px;
+
+        &.active{
+          color: #2c74ea;
+        }
       }
     }
-
+    .action{
+      display: flex;
+      cursor: pointer;
+      .more{
+        line-height: 40px;
+        margin-right: 20px;
+      }
+    }
     .btn {
       width: 85px;
       height: 40px;
@@ -133,6 +165,11 @@ export default {
       background-color: #2c74ea;
       text-align: center;
       line-height: 40px;
+    }
+
+    .more {
+      color: #b8b8b8;
+      font-size: 14px;
     }
 
     .picture {

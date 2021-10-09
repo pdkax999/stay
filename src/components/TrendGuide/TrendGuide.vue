@@ -28,7 +28,6 @@
     </div>
   </div>
 </template>
-
 <script type="text/ecmascript-6">
 export default {
   data() {
@@ -44,6 +43,7 @@ export default {
       ],
       // 选中标识
       actived: 0,
+      // 移动多少
       moveDistance: 0,
       // 展示多少个菜单
       showMenuItem: 5,
@@ -51,6 +51,7 @@ export default {
   },
   computed: {
     moveLeft() {
+
       const { moveDistance } = this;
 
       let result = moveDistance * -20 + "%";
@@ -76,13 +77,17 @@ export default {
     },
     selectMenu(i) {
       this.actived = i;
-      const { menuList, showMenuItem, moveDistance } = this;
+      
+      const { menuList, showMenuItem} = this;
 
       let maxMoove = menuList.length - showMenuItem;
-      if (maxMoove > moveDistance) {
+      
+      if (maxMoove >= i) {
         this.moveDistance = i;
+      }else{
+        this.moveDistance =maxMoove
       }
-    },
+    }
   },
 };
 </script>

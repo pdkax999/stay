@@ -154,7 +154,7 @@ export default {
 };
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 @mixin leCenterP {
   position: absolute;
   left: 50%;
