@@ -1,5 +1,6 @@
 <template>
   <div class="CardMessage">
+    <div class="ranking" v-if="tag"><Icon icon="jiangbei"></Icon> 最受欢迎</div>
     <header>
       <div class="userinfo">
         <div class="card-avatar">
@@ -45,7 +46,14 @@
 </template>
 
 <script type="text/ecmascript-6">
-export default {};
+export default {
+  props:{
+    tag:{
+      type:Boolean,
+      default:false
+    }
+  }
+};
 </script>
 
 <style lang='scss'>
@@ -56,12 +64,34 @@ export default {};
   width: 580px;
   margin-bottom: 15px;
   border-radius: 10px;
+  position: relative;
   .card-avatar {
     width: 50px;
     height: 50px;
     margin-right: 5px;
   }
+  // 最受欢迎
+  .ranking{
+    width: 120px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 10px;
+    position: absolute;
+    left: 345px;
+    top: -12px;
+    z-index: 10;
+    box-shadow: 5px 5px 100px  rgba(0, 0, 0, .1);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background-color: #fff;
 
+     .icon{
+       font-size: 20px;
+       margin-right: 12px;
+       transform: translateY(-1px);
+     }
+  }
   header {
     display: flex;
     justify-content: space-between;

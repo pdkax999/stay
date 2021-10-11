@@ -88,7 +88,6 @@ export default {
   .videos {
     width: 230px;
     height: 430px;
-    background-color: #bfa;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

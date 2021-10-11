@@ -41,7 +41,7 @@
         </div>
          <div class="my">
           <span>我的发布</span>
-          <span class="month">点赞率</span>
+          <span class="month">收藏率</span>
         </div>
       </div>
      

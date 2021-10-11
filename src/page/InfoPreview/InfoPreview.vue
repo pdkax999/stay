@@ -48,6 +48,7 @@
     <div class="myDetail">
       <CardMessage>
            <div class="content-wap">
+
                <p>经过了前，接下来就需要设计师根据获得线框图，制作高保真设计稿了.动手 前需要先浏览所有页面功能点，和开发人员沟通确认，这样可以减少交付时不必要麻烦。</p>
                 <!-- 多个图片 -->
                 <div class="prices">
@@ -183,6 +184,7 @@ export default {
       margin-bottom: 35px;
     }
   }
+  
 
   .watch {
     width: 287px;
@@ -196,7 +198,7 @@ export default {
       width: 100%;
       height: 214px;
       background-color: pink;
-
+       border-radius: 10px;
       .info{
         padding-top: 40px;
         display: flex;
@@ -224,6 +226,7 @@ export default {
 
   .home-wrap {
     display: flex;
+    height: 445px;
     justify-content: space-between;
   }
 
@@ -236,8 +239,10 @@ export default {
 }
 
  .content-wap{
-    .price{
+    .prices
+    {
       margin-top: 25px;
+
       .bg{
         width: 300px;
         height: 300px;
@@ -245,6 +250,7 @@ export default {
         border-radius: 10px;
       }
     }
+
 
     .btn {
     margin-top: 27px;

@@ -3,10 +3,7 @@
     <router-view></router-view>
   </div>
 </template>
-
 <script>
-
-
 export default {
   name: 'App',
   components: {
@@ -20,6 +17,4 @@ export default {
   @import "./common/base.css";
   @import "../public/css/ress.min.css";
   
-   
-
 </style>

@@ -3,7 +3,6 @@
     <div class="go left" @click="showLeft" :class="{active:current>0}">
       <Icon icon="left"></Icon>
     </div>
-
     <div class="container">
       <ul class="guides" :style="{ left: left }">
         <li v-for="menu in menuList" :key="menu.id">
@@ -12,7 +11,6 @@
         </li>
       </ul>
     </div>
-    
     <div class="go rights" @click="showRight" :class="{active: menuList.length - 7>current}">
       <Icon icon="right"></Icon>
     </div>
@@ -87,9 +85,7 @@ export default {
   computed: {
     left() {
       const { current } = this;
-
       let result = current * (-100 / 7);
-
       return result + "%";
     },
     // 是否高亮显示left
@@ -102,6 +98,7 @@ export default {
       if (current < maxLeft) {
         this.current++;
       }
+      return false
     },
     showLeft() {
     const { current} = this;
@@ -110,7 +107,8 @@ export default {
          this.current--;
       }
 
-    },
+     return false
+    }
   },
 };
 </script>

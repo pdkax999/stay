@@ -4,17 +4,17 @@
     <div class="content">
       <div class="menu-left">
         <ul class="menu-list">
-          <li class="avatar-wrapper">
+          <li class="avatar-wrapper" v-show="$route.meta.isShowMenu">
             <Avatar></Avatar>
           </li>
           <li class="menu" @click="menuActive=1" :class="{active:menuActive==1}">
             <Icon icon="diannao"></Icon>
           </li>
-          <li class="menu" @click="menuActive=2" :class="{active:menuActive==2}">
+          <li class="menu" @click="menuActive=2" :class="{active:menuActive==2}" v-show="$route.meta.isShowMenu">
             <Icon icon="shuzhuangtu" ></Icon>
           </li>
           <li class="menu" @click="menuActive=3" :class="{active:menuActive==3}">
-            <Icon icon="gerentouxiang" ></Icon>
+            <Icon icon="suijiyonghu" ></Icon>
           </li>
           <li class="menu" @click="menuActive=4" :class="{active:menuActive==4}">
             <Icon icon="suijiyonghu" ></Icon>
@@ -50,7 +50,7 @@
     display: flex;
    
     .menu-left{
-      width: 83px !important;
+      width: 81px;
       background: #fff;
       flex: none;
       .menu-list{

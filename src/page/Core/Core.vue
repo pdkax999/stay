@@ -93,7 +93,6 @@
 
         </div>
         <UserList :type="true"></UserList>
-        
        </div>
     </div>
   </div>

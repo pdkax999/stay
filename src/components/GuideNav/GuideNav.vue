@@ -25,7 +25,7 @@ export default {
       menuList: [
         "xiangqing",
         "50",
-        "gerentouxiang",
+        "50",
         "tupian",
         "yinpin",
         "tupian",

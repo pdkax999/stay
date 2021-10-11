@@ -2,8 +2,7 @@
   <div class="header">
     <nav>
       <div class="logo">
-        <!-- <img src="" alt=""> -->
-        <div class="img"></div>
+        <img  class="img" src="../../assets/chongyejiaPClogo1612427932.png" alt="logo">
         <h3 class="title">想天社区 <Icon icon="caidan"></Icon></h3>
       </div>
       <ul class="guide">
@@ -37,13 +36,14 @@
   }
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 
  .header{
   height: 82px;
   background-color: #2C74EA;
   padding: 0px 28px 0 21px;
   display: flex;
+  
    &>nav{
     
      display: flex;
@@ -56,13 +56,15 @@
        width: 61px;
        height: 41px;
        margin-right: 13px;
-       background-color: #bfa;
+      //  background-color: #bfa;
        }
        
        .title{
          display: flex;
          font-size: 18px;
          font-weight: 100;
+         margin-bottom: 0;
+         color: #fff;
          .icon{
            margin-left: 29px;
            transform: translateY(4px);

@@ -12,18 +12,30 @@ const  router = new VueRouter({
        {
          path:'/person',
          component: ()=> import('@/page/Personal/Personal.vue'),
+         meta:{
+           isShowMenu:true 
+         }
        },
        {
          path:'/social',
          component: ()=> import('@/page/Social/Social.vue'),
+         meta:{
+          isShowMenu:false
+        }
        },
        {
          path:'/core',
          component: ()=> import('@/page/Core/Core.vue'),
+         meta:{
+          isShowMenu:true 
+        }
        },
        {
          path:'/preview',
          component: ()=> import('@/page/InfoPreview/InfoPreview.vue'),
+         meta:{
+          isShowMenu:true 
+        }
        },
        {
          path:'/test',

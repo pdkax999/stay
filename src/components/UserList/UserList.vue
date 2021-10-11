@@ -41,18 +41,13 @@ export default {
     userInfo:{
       type: Object,
       default: function () {
+        
         let {categoryUser} = require('@/common/data')
+        
         return categoryUser
-      
       }
     },
-  },
-  mounted() {
-    
-    console.log(this.userInfo);
-    
-
-  },
+  }
 };
 </script>
 
