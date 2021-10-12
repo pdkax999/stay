@@ -12,7 +12,10 @@
         <div class="edit">
           <EditTrends></EditTrends>
         </div>
-        <TrendGuide class="trendUide"></TrendGuide>
+
+        <Menu class="trendUide"  :guideList="menuList" :showMenuItem="5"
+         type="text" pitchGuide></Menu>
+         
         <CardMessage>
           <div class="content-wap">
             <p>
@@ -90,7 +93,7 @@
       </div>
        <div class="right-gudie">
         <div class="stat-wra">
-
+          <StatisticData></StatisticData>
         </div>
         <UserList :type="true"></UserList>
        </div>
@@ -101,19 +104,34 @@
 <script type="text/ecmascript-6">
 import UserList from "@/components/UserList/UserList.vue";
 import EditTrends from "@/components/EditTrends/EditTrends.vue";
-import TrendGuide from "@/components/TrendGuide/TrendGuide.vue";
 import CardMessage from "@/components/CardMessage/CardMessage.vue";
+import StatisticData from "@/components/StatisticData/StatisticData.vue";
+import Menu from "@/components/GuideMenu/Menu.vue";
 export default {
   components: {
     UserList,
     EditTrends,
-    TrendGuide,
     CardMessage,
+    StatisticData,
+    Menu
   },
+  data(){
+    return {
+      menuList: [
+        "全部",
+        "热门",
+        "精华",
+        "设计经验",
+        "素材分析",
+        "分析",
+        "排行榜",
+      ]
+    }
+  }
 };
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 .core-container {
   width: 100%;
   .head {
@@ -128,7 +146,7 @@ export default {
   }
 }
 .trendUide{
-  
+  background-color: #fff;
   margin-bottom: 15px;
   cursor: pointer;
   }

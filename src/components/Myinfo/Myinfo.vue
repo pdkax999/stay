@@ -9,7 +9,7 @@
     <div class="content-warp">
       <div class="issue info">
         <Icon icon="fabu"></Icon>
-         <span class="num">28.5</span>
+        <span class="num">28.5</span>
 
         <div class="my">
           <span>我的发布</span>
@@ -17,8 +17,8 @@
         </div>
       </div>
       <div class="comment info">
-         <Icon icon="pinglun"></Icon>
-         <span class="num">28.5</span>
+        <Icon icon="pinglun"></Icon>
+        <span class="num">28.5</span>
 
         <div class="my">
           <span>我的发布</span>
@@ -27,24 +27,44 @@
       </div>
 
       <div class="chart">
-        <div class="progress">
-          <span>87%</span>
-        </div>
-         <div class="my">
+        <a-progress
+          class="progress"
+          type="circle"
+          :width="85"
+          :percent="87"
+          :strokeWidth="10"
+          stroke-linecap="square"
+          :stroke-color="{
+            '50%': '#2B76EA',
+            '100%': '#40EAFE',
+          }"
+        />
+        <div class="my">
           <span>我的发布</span>
           <span class="month">点赞率</span>
         </div>
       </div>
       <div class="chart">
-        <div class="progress">
+        <!-- <div class="progress">
           <span>42%</span>
-        </div>
-         <div class="my">
+        </div> -->
+        <a-progress
+          class="progress"
+          type="circle"
+          :width="85"
+          :percent="42"
+          :strokeWidth="10"
+          stroke-linecap="square"
+          :stroke-color="{
+            '50%': '#2B76EA',
+            '100%': '#40EAFE',
+          }"
+        />
+        <div class="my">
           <span>我的发布</span>
           <span class="month">收藏率</span>
         </div>
       </div>
-     
     </div>
   </div>
 </template>
@@ -83,7 +103,8 @@ export default {};
     padding-top: 72.5px;
     display: flex;
     flex-wrap: wrap;
-    .info,.chart{
+    .info,
+    .chart {
       width: 50%;
       height: 50%;
       color: #000;
@@ -92,28 +113,27 @@ export default {};
       justify-content: center;
       align-items: center;
       position: relative;
-      .my{
-         display: flex;
-         flex-direction: column;
-         text-align: center;
+      .my {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
 
-         .month{
-           font-size: 12px;
-           color: #999;
-         }
+        .month {
+          font-size: 12px;
+          color: #999;
+        }
       }
-      .icon{
+      .icon {
         font-size: 25px;
         color: #000;
       }
-      .num{
+      .num {
         font-size: 20px;
         font-weight: bold;
         line-height: 45px;
-        
       }
 
-      &:not(.info:nth-child(2n)):after{
+      &:not(.info:nth-child(2n)):after {
         content: " ";
         position: absolute;
         width: 2px;
@@ -124,23 +144,21 @@ export default {};
         transform: translateY(-50%);
       }
     }
-    .progress{
-      width: 85px;
-      height: 85px;
-      text-align: center;
-      line-height: 75px;
-      border-radius: 50%;
-      border: 5px solid #ff6700;
+    .progress {
+      // width: 85px;
+      // height: 85px;
+      // text-align: center;
+      // line-height: 75px;
+      // border-radius: 50%;
+      // border: 5px solid #ff6700;
       margin-bottom: 20px;
-      span{
-        font-size: 30px;
+      span {
+        font-size: 20px;
       }
     }
-
-    
   }
 
-  .chart{
+  .chart {
     justify-content: flex-start !important;
   }
 }

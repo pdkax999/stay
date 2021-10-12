@@ -10,7 +10,7 @@
     <div class="container-nav">
       <ul class="guides" :style="{ left: moveLeft }">
         <li
-          :class="{ active: actived == index }"
+          :class="{ active: actived === index }"
           v-for="(menu, index) in menuList"
           :key="index"
           @click="selectMenu(index)"
@@ -51,7 +51,6 @@ export default {
   },
   computed: {
     moveLeft() {
-
       const { moveDistance } = this;
 
       let result = moveDistance * -20 + "%";
@@ -77,17 +76,17 @@ export default {
     },
     selectMenu(i) {
       this.actived = i;
-      
-      const { menuList, showMenuItem} = this;
+
+      const { menuList, showMenuItem } = this;
 
       let maxMoove = menuList.length - showMenuItem;
-      
+
       if (maxMoove >= i) {
         this.moveDistance = i;
-      }else{
-        this.moveDistance =maxMoove
+      } else {
+        this.moveDistance = maxMoove;
       }
-    }
+    },
   },
 };
 </script>

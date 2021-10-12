@@ -13,8 +13,6 @@ export default {
 </script>
 
 <style lang="scss">
-
-  @import "./common/base.css";
-  @import "../public/css/ress.min.css";
-  
+@import "./common/base.css";
+@import "../public/css/ress.min.css";
 </style>

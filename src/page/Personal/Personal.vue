@@ -37,13 +37,8 @@
         <div class="mottom">爱剪辑爱生活</div>
       </div>
     </div>
-
-    <div class="nav-wrapper">
-      <GuideNav></GuideNav>
-    </div>
-
+    <Menu class="nav-wrapper"  showLine :guideList="menuList" pitchGuide></Menu>
     <div class="dashboard">
-
       <div class="left">
         <Brief></Brief>
         <div class="focus-wr">
@@ -120,17 +115,16 @@
 </template>
 
 <script type="text/ecmascript-6">
-import GuideNav from "@/components/GuideNav/GuideNav.vue";
 import Brief from "@/components/Brief/Brief.vue";
 import UserList from "@/components/UserList/UserList.vue";
 import Videos from "@/components/Videos/Videos.vue";
 import EditTrends from "@/components/EditTrends/EditTrends.vue";
 import CardMessage from "@/components/CardMessage/CardMessage.vue";
 import Picture from "@/components/Picture/Picture.vue";
-
+import Menu from "@/components/GuideMenu/Menu.vue";
 export default {
   components: {
-    GuideNav,
+    Menu,
     Brief,
     UserList,
     Videos,
@@ -141,7 +135,20 @@ export default {
   data(){
     return {
       categoryUser:{},
-      activated:1
+      activated:1,
+       menuList: [
+        "yinpin",
+        "50",
+        "50",
+        "tupian",
+        "yinpin",
+        "tupian",
+        "yinpin",
+        "tupian",
+        "yinpin",
+        "yinpin",
+        "yinpin",
+      ]
     }
   },
   mounted(){
@@ -271,6 +278,7 @@ export default {
 }
 
 .nav-wrapper {
+  background-color: #fff;
   margin: 18px 0;
 }
 

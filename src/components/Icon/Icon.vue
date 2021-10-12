@@ -5,13 +5,11 @@
 </template>
 
 <script type="text/ecmascript-6">
-  
   export default {
    props:{
     icon:String
    }
   }
-
 </script>
 
 <style lang='scss'>
@@ -19,7 +17,6 @@
   width: 1em;
   height: 1em;
   fill: currentColor;
-       overflow: hidden;
+  overflow: hidden;
 }
- 
 </style>
