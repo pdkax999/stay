@@ -43,6 +43,7 @@
   background-color: #2C74EA;
   padding: 0px 28px 0 21px;
   display: flex;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px 0px;
   
    &>nav{
     

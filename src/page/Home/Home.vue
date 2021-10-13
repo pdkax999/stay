@@ -47,14 +47,6 @@
 </script>
 
 <style lang="scss">
-
-
-  // .home-container{
-  //   position: fixed;
-  //   top: 0;
-  //   left: 0;
-  // }
-
   .content{
     background-color: #F5F4F9;
     display: flex;
@@ -105,11 +97,13 @@
     }
 
     .person-content{
-      // height: calc(100vh - 82px);
-      // overflow-y: scroll;
+      height: calc(100vh - 82px);
+      overflow: auto;
       flex: 1;
-      padding: 35px 113px 0px  32px;
+      padding: 35px 93px 0px  32px;
     }
+
+
   }
 
  
