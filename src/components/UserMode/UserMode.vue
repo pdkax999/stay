@@ -28,7 +28,6 @@
     margin-right: 10px;
   }
 
-  
     .info{
       display: flex;
       transform: translateY(3px);

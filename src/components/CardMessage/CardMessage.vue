@@ -85,7 +85,6 @@ export default {
      align-items: center;
      justify-content: center;
      background-color: #fff;
-
      .icon{
        font-size: 20px;
        margin-right: 12px;
@@ -96,7 +95,6 @@ export default {
     display: flex;
     justify-content: space-between;
     margin-bottom: 24px;
-
     .icon {
       font-size: 30px;
     }
@@ -105,7 +103,6 @@ export default {
     display: flex;
     flex-direction: column;
     line-height: 1;
-    // align-content: center;
     justify-content: center;
     span:first-child {
       position: relative;
@@ -135,11 +132,8 @@ export default {
       height: 55px;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1.5px solid #eeeeee;
-      border-top: 1.5px solid #eeeeee;
-
-
-
+      border-bottom: 1.5px solid #eee;
+      border-top: 1.5px solid #eee;
       .like {
         display: flex;
         justify-content: space-between;

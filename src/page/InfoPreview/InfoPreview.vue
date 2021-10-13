@@ -20,7 +20,7 @@
       </div>
       <div class="right">
         <div class="menuNav">
-   <Menu  :guideList="List"  :showMenuItem="7"  type="text"></Menu>
+   <Menu  :guideList="List"  :showMenuItem="7"  type="text"  showLine></Menu>
 
         </div>
 

@@ -21,9 +21,12 @@
           </li>
         </ul>
         </div>
+<!-- :style="{height:""}" -->
+
         <div class="person-content">
-         <router-view></router-view>
-      </div>
+           <router-view></router-view>
+        </div>
+
       </div>
       
   </div>
@@ -44,6 +47,13 @@
 </script>
 
 <style lang="scss">
+
+
+  // .home-container{
+  //   position: fixed;
+  //   top: 0;
+  //   left: 0;
+  // }
 
   .content{
     background-color: #F5F4F9;
@@ -95,6 +105,8 @@
     }
 
     .person-content{
+      // height: calc(100vh - 82px);
+      // overflow-y: scroll;
       flex: 1;
       padding: 35px 113px 0px  32px;
     }

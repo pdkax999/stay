@@ -70,7 +70,7 @@
  
         
         <div class="newMessage-wra">
-          <span>最新发布</span> <span class="direction"> > </span>
+          <span>最新发布</span> <span class="direction"> <Icon icon="jiantou_liebiaozhankai"></Icon> </span>
         </div>
         <CardMessage>
           <div class="content-wap">
@@ -314,43 +314,6 @@ export default {
     margin-bottom: 15px;
     cursor: pointer;
   }
-
-  /*   .info-category{
-    width: 100%;
-    height: 82px;
-    background-color: #fff;
-    border-radius: 10px;
-    display: flex;
-    .go{
-      width: 40px;
-      height: 100%;
-      color: #999;
-      font-size: 20px;
-      @include FlexCenter();
-    }
-     */
-  /*     .container-nav{
-      color: #999;
-      width: 500px;
-
-      .guides{
-      display: flex;
-      width: 100%;
-      font-size: 18px;
-       @include FlexCenter(space-between);
-      height: 100%;
-       li{
-         height: 100%;
-         padding: 0 20px;
-          @include FlexCenter();
-
-          &.active{ 
-            font-weight: bold;
-            border-bottom: 2px solid #2C74EA;
-          }
-       }
-    }
-    } */
   // }
   .newMessage-wra {
     width: 100%;
@@ -363,9 +326,12 @@ export default {
       transform: translateX(-20px);
     }
     .direction {
-      font-size: 15px;
+      font-size: 20px;
       color: #b4b3b8;
-      transform: rotate(90deg);
+     display: flex;
+     .icon{
+       margin: auto;
+     }
     }
   }
 

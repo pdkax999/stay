@@ -1,6 +1,5 @@
 <template>
   <div class="guide-container" ref="guideCon" :class="{ showLine: showLine }">
-
     <div
       class="left go splitLine"
       :style="{ width: `${moreWidth}px` }"
@@ -26,7 +25,6 @@
             <span>{{ menu.title }}</span>
           </span>
           <span v-else class="title">{{ menu }}</span>
-
         </li>
       </ol>
       <!-- 分割线 -->
@@ -39,7 +37,6 @@
         ></li>
       </ol>
     </div>
-
     <div
       class="right go splitLine"
       :style="{ width: `${moreWidth}px` }"

@@ -39,7 +39,7 @@
     font-size: 18px;
     font-weight: bold;
     color: #000;
-    margin-bottom: 39px;
+    margin-bottom: 35px;
     .picture{
 
       span{

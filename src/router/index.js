@@ -40,6 +40,9 @@ const  router = new VueRouter({
        {
          path:'/test',
          component: ()=> import('@/page/test/test.vue'),
+         meta:{
+          isShowMenu:true 
+        }
        },
        { // 自动跳转路由
         path: '/',
@@ -50,4 +53,4 @@ const  router = new VueRouter({
   ]
   
 })
-export default   router
+export default  router

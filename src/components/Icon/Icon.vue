@@ -5,15 +5,18 @@
 </template>
 
 <script type="text/ecmascript-6">
-  export default {
-   props:{
-    icon:String
-   }
-  }
+export default {
+  props: {
+    icon: {
+      type: String,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang='scss'>
-.icon{
+.icon {
   width: 1em;
   height: 1em;
   fill: currentColor;

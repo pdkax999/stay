@@ -176,6 +176,11 @@ export default {
   margin: auto;
 }
 
+ul,ol{
+  margin-top: 0;
+   margin-bottom: 0;
+}
+
 
 .personal-container {
   width: 100%;

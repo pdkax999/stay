@@ -14,7 +14,7 @@
 
 <style lang='scss'>
 .brief-wrp{
-  width: 290px;
+  width: 285px;
   height: 234px;
   background-color: #fff;
   border-radius: 10px;
@@ -23,11 +23,16 @@
   font-size: 12px;
   h3{
     color: #000;
-    margin-bottom: 38px;
+    font-weight: bold;
+    margin-bottom: 34px;
+  }
+  p{
+    font-size: 14px;
   }
   .timeWr{
     margin-top: 27px;
     color: #000;
+    font-size: 14px;
     .title{
       margin-right: 24px;
     }
