@@ -65,7 +65,6 @@
 
         width: 55px;
         height: 55px;
-        // background-color: red;
 
       }
       .active{

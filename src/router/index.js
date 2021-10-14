@@ -46,7 +46,7 @@ const  router = new VueRouter({
        },
        { // 自动跳转路由
         path: '/',
-        redirect: '/preview'
+        redirect: '/social'
       }
      ]
     }

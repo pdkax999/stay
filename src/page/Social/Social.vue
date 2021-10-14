@@ -60,19 +60,27 @@
         </div>
       </div>
 
-      <div class="centerGudie">
+      <div
+        class="centerGudie"
+        v-infinite-scroll="loadMore"
+        infinite-scroll-disabled="busy"
+        infinite-scroll-distance="10"
+      >
         <div class="wra-editTrends">
           <EditTrends></EditTrends>
         </div>
-        
-        <Menu :guideList="List" pitchGuide type="text" 
-         :showMenuItem="5"> </Menu>
- 
-        
+
+        <Menu :guideList="List" pitchGuide type="text" :showMenuItem="5">
+        </Menu>
+
         <div class="newMessage-wra">
-          <span>最新发布</span> <span class="direction"> <Icon icon="jiantou_liebiaozhankai"></Icon> </span>
+          <span>最新发布</span>
+          <span class="direction">
+            <Icon icon="jiantou_liebiaozhankai"></Icon>
+          </span>
         </div>
-        <CardMessage>
+
+        <CardMessage v-for="num in data">
           <div class="content-wap">
             <p>
               经过了前，接下来就需要设计师根据获得线框图，制作高保真设计稿了.动手
@@ -86,13 +94,14 @@
             <div class="btn">设计研究学院</div>
           </div>
         </CardMessage>
-        <CardMessage>
+
+        <!--       <CardMessage>
           <div class="content-wap">
             <p>
               经过了前，接下来就需要设计师根据获得线框图，制作高保真设计稿了.动手
               前需要先浏览所有页面功能点，和开发人员沟通确认，这样可以减少交付时不必要麻烦。
             </p>
-            <!-- 多个图片 -->
+          
             <div class="prices">
               <div class="bg big"></div>
               <div class="bg big"></div>
@@ -105,8 +114,9 @@
 
             <div class="btn">设计研究学院</div>
           </div>
-        </CardMessage>
-        <CardMessage>
+        </CardMessage> -->
+
+        <!-- <CardMessage>
           <div class="content-wap">
             <p>
               经过了前，接下来就需要设计师根据获得线框图，制作高保真设计稿了.动手
@@ -114,7 +124,11 @@
             </p>
             <div class="btn">设计研究学院</div>
           </div>
-        </CardMessage>
+        </CardMessage> -->
+
+        <div class="loadding" v-if="busy">
+          <img src="../../assets/loading-spinning-bubbles.svg" alt="" />
+        </div>
       </div>
 
       <div class="right-gudie">
@@ -129,6 +143,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+
 import Brief from "@/components/Brief/Brief.vue";
 import UserList from "@/components/UserList/UserList.vue";
 import Videos from "@/components/Videos/Videos.vue";
@@ -140,7 +155,7 @@ import Menu from "@/components/GuideMenu/Menu.vue";
 
 export default {
   components: {
-     Menu,
+    Menu,
     Brief,
     UserList,
     Videos,
@@ -148,7 +163,6 @@ export default {
     CardMessage,
     Recommend,
     Picture,
-
   },
   data() {
     return {
@@ -165,16 +179,23 @@ export default {
         "yinpin",
         "yinpin",
       ],
-       List: [
-        "全部",
-        "热门",
-        "精华",
-        "设计经验",
-        "素材分析",
-        "分析",
-        "排行榜",
-      ]
+      List: ["全部", "热门", "精华", "设计经验", "素材分析", "分析", "排行榜"],
+      data: 2,
+      busy: false,
     };
+  },
+  methods: {
+    loadMore() {
+      this.busy = true;
+
+      setTimeout(() => {
+
+          this.data+=2
+        
+          this.busy = false;
+      
+      }, 1000);
+    },
   },
 };
 </script>
@@ -328,10 +349,10 @@ export default {
     .direction {
       font-size: 20px;
       color: #b4b3b8;
-     display: flex;
-     .icon{
-       margin: auto;
-     }
+      display: flex;
+      .icon {
+        margin: auto;
+      }
     }
   }
 
@@ -395,5 +416,17 @@ export default {
   .right-gudie {
     width: 290px;
   }
+ 
+ .loadding{
+   transform: translateY(30px);
+   width: 100%;
+   height: 170px;
+   @include FlexCenter();
+   img{
+     width: 100px;
+     height: 100px;
+   }
+  }
+
 }
 </style>

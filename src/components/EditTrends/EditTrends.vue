@@ -33,7 +33,7 @@
 
     <div class="footer">
       <div class="opction">
-        <Icon icon="xiangji1"  @click.native="menuActive=1" :class="{active:menuActive==1}"></Icon>
+        <Icon icon="xiangji1" @click.native="menuActive=1" :class="{active:menuActive==1}"></Icon>
         <Icon icon="ren" @click.native="menuActive=2" :class="{active:menuActive==2}"></Icon>
         <Icon icon="ren" @click.native="menuActive=3" :class="{active:menuActive==3}"></Icon>
         <Icon icon="ren" @click.native="menuActive=4" :class="{active:menuActive==4}"></Icon>
@@ -112,11 +112,12 @@ export default {
     height: 160px;
     padding: 23px 32px 16px 32px;
     position: relative;
-
+   
     .edit {
       width: 100%;
       height: 100%;
       resize: none;
+      color: #000;
     }
 
     .textNum {
