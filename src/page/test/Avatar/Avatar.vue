@@ -1,7 +1,7 @@
 <template>
   <div class="avatar">
     <div class="wrap-avatar">
-      <img src="../../assets/test.jpg" alt="">
+      <img :src="url" alt="">
     </div>
     <!-- <span class="num">
       24
