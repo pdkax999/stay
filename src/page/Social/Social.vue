@@ -80,19 +80,7 @@
           </span>
         </div>
 
-        <CardMessage v-for="num in data">
-          <div class="content-wap">
-            <p>
-              经过了前，接下来就需要设计师根据获得线框图，制作高保真设计稿了.动手
-              前需要先浏览所有页面功能点，和开发人员沟通确认，这样可以减少交付时不必要麻烦。
-            </p>
-
-            <div class="price">
-              <div class="bg"></div>
-            </div>
-
-            <div class="btn">设计研究学院</div>
-          </div>
+        <CardMessage v-for="info in channelDataList" :info="info" :key="info.id">
         </CardMessage>
 
         <!--       <CardMessage>
@@ -148,7 +136,7 @@ import Brief from "@/components/Brief/Brief.vue";
 import UserList from "@/components/UserList/UserList.vue";
 import Videos from "@/components/Videos/Videos.vue";
 import EditTrends from "@/components/EditTrends/EditTrends.vue";
-import CardMessage from "@/components/CardMessage/CardMessage.vue";
+import CardMessage from "../test/CardMessage/CardMessage.vue";
 import Recommend from "@/components/Recommend/Recommend.vue";
 import Picture from "@/components/Picture/Picture.vue";
 import Menu from "@/components/GuideMenu/Menu.vue";
@@ -180,23 +168,32 @@ export default {
         "yinpin",
       ],
       List: ["全部", "热门", "精华", "设计经验", "素材分析", "分析", "排行榜"],
-      data: 2,
       busy: false,
+       page: 1,
+      channelDataList: [],
     };
   },
-  methods: {
-    loadMore() {
-      this.busy = true;
-
-      setTimeout(() => {
-
-          this.data+=2
-        
-          this.busy = false;
-      
-      }, 1000);
-    },
+ mounted() {
+    this.getChannelDataList();
   },
+  methods: {
+    async getChannelDataList() {
+      const { page } = this;
+
+      let result = await this.$api.reqChannelDataList(page);
+
+      this.channelDataList.push(...result.thread_list)
+      this.busy=false
+    },
+    loadMore(){
+
+      this.busy=true
+      this.page++
+     this.getChannelDataList();
+    
+    }
+  },
+
 };
 </script>
 

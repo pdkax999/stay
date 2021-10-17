@@ -1,26 +1,45 @@
 <template>
-  <div class="CardMessage" v-if="data.user">
+  <div class="CardMessage" v-if="info.user">
     <div class="ranking" v-if="tag"><Icon icon="jiangbei"></Icon> 最受欢迎</div>
     <header>
       <div class="userinfo">
         <div class="card-avatar">
-          <Avatars :url="data.user.avatar"></Avatars>
+          <Avatars :url="info.user.avatar"></Avatars>
         </div>
         <div class="info">
-          <span>{{data.user.nickname}}<Icon icon="vip"></Icon></span>
-          <span>{{data.create_time}}</span>
+          <span>{{ info.user.nickname }}<Icon icon="vip"></Icon></span>
+          <span>{{ info.create_time }}</span>
         </div>
       </div>
       <Icon icon="gengduosangedian"></Icon>
     </header>
+
     <div class="body">
-      <p>{{ data.summary }}</p>
-      <div class="picture">
-        <div class="img-item" v-for="(img,i) in (data.image_pc_much)" :key="i">
-          <img :src="img.image" alt="帖子图片">
+      <h3 class="title" v-if="info.title">{{ info.title }}</h3>
+      <p
+        v-for="(text, i) in info.summary
+          .split('\n')
+          .filter((text) => text.trim())"
+        :key="i"
+      >
+        {{ text }}
+      </p>
+
+      <div class="soleImg" v-if="info.cover">
+        <img :src="info.cover" alt="图片" />
+      </div>
+      
+      <div
+        class="picture"
+        v-else-if="info.image_pc_much.length > 0"
+      >
+        <div class="img-item" v-for="(img, i) in info.image_pc_much.slice(0,3)" :key="i">
+          <img :src="img.image" alt="帖子图片" />
         </div>
       </div>
+      
     </div>
+
     <footer>
       <div class="read">
         <div class="like">
@@ -28,10 +47,10 @@
           <span>22</span>
         </div>
         <div class="comment-info">
-          <span>{{data.reply_count}}条评论</span><span class="browse">{{data.view_count}}浏览</span>
+          <span>{{ info.reply_count }}条评论</span
+          ><span class="browse">{{ info.view_count }}浏览</span>
         </div>
       </div>
-
       <div class="tips">
         <div class="like">
           <Icon icon="dianzan"></Icon>
@@ -58,31 +77,17 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
-  data() {
-    return {
-      page: 1,
-      channelDataList: {},
-    };
-  },
-  computed: {
-    data() {
-      return this.channelDataList.thread_list
-        ? this.channelDataList.thread_list[0]
-        : {};
-    },
+    info:{
+      type:Object,
+       default: function () {
+        return { }
+      }
+    }
   },
   mounted() {
-    this.getChannelDataList();
-  },
-  methods: {
-    async getChannelDataList() {
-      const { page } = this;
-
-      let result = await this.$api.reqChannelDataList(page);
-
-      this.channelDataList = result;
-    },
+    
+    console.log(this.info);
+    
   },
   components: {
     Avatars,
@@ -160,23 +165,55 @@ export default {
   }
 
   .body {
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: .8em;
+      
+    }
+    p {
+        font-size: 18px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+      }
 
     .picture {
       height: 160px;
       display: flex;
-      justify-content: space-between;
+      // justify-content: space-between;
       .img-item {
         height: 100%;
-        width: calc(calc(100% - 10px)/3);
-        background-color: red;
-        // border-radius: 10px;
+        width: calc(calc(100% - 10px) / 3);
         overflow: hidden;
+        
         img {
           width: 100%;
           height: 100%;
         }
+
+        &:not(:last-child){
+          margin-right: 5px;
+        }
+
       }
     }
+
+    .soleImg {
+      width: 300px;
+      height: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    
+
+
   }
   footer {
     height: 119px;

@@ -34,8 +34,8 @@ import CardMessage from "../../page/test/CardMessage/CardMessage.vue";
 
       console.log(result);
       
-
-     }
+     },
+    
     },
     components:{
       CardMessage
