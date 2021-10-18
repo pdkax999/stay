@@ -9,15 +9,16 @@ import infiniteScroll from 'vue-infinite-scroll'
 import * as api from '@/api/index.js'
 Vue.config.productionTip = false
 
-console.log(api);
-
 Vue.component('Icon',Icon)
 Vue.component('Avatar',Avatar)
 Vue.component(Progress.name,Progress)
 Vue.component(BackTop.name,BackTop)
+
+
 Vue.use(infiniteScroll)
 
 Vue.prototype.myAxios=myAxios
+
 Vue.prototype.$api=api
 
 new Vue({

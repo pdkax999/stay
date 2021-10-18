@@ -17,18 +17,23 @@
 </body>
 <script>
 
-  // let arr =
+  let arr = 'ababbbaacccbbbxxxx'
 
-let arr= `新品情报 | 顽皮（wanpy）上新猫冻干\n\n上新时间：10月14日\n
-\n上新渠道：天猫旗舰店\n
-\n新品定价：35.9元/盒（60g）\n
-\n新品特点：-36℃真空速冻，牢牢锁住食材营养，常温保存长达2年；采用优质整肉，咀嚼使用合成肉，每颗冻干颗粒饱满；一份冻干，五倍鲜肉营养；不添加任何防腐剂、着色剂、调味剂、诱食剂；独立便携小包装，方便携带。"
- `
+  let save ={} 
 
-console.log(  arr.indexOf('\\n'));
+  while (arr.length){
 
-// console.log('\\n');
+    let oldLength = arr.length 
+     
+    let key = arr[0]
+    
+     arr=arr.split(arr[0]).join('')
+    
+    save[key]=oldLength-arr.length
 
-// document.body.innerHTML=
+  }    
+
+  console.log(save);
+  
 </script>
 </html>

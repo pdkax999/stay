@@ -153,8 +153,12 @@ export default {
 
       this.activated = i;
 
+     if(guideList.length<showMenuItem) return
+
       let maxMoove = guideList.length - showMenuItem;
+
       // 移动菜单如果小于最大值 则移动到哪 ，大于最大值则移动到最大值
+
       if (i > maxMoove) {
         this.moveDistance = maxMoove;
       } else {

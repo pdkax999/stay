@@ -4,7 +4,6 @@
       <div class="bg">
         <!-- <img src="" alt=""> -->
       </div>
-
       <div class="user">
         <div class="info">
           <h4 class="title">运营研究院</h4>
@@ -61,10 +60,6 @@
       </div>
 
       <div
-        class="centerGudie"
-        v-infinite-scroll="loadMore"
-        infinite-scroll-disabled="busy"
-        infinite-scroll-distance="10"
       >
         <div class="wra-editTrends">
           <EditTrends></EditTrends>
@@ -80,9 +75,10 @@
           </span>
         </div>
 
-        <CardMessage v-for="info in channelDataList" :info="info" :key="info.id">
-        </CardMessage>
-
+         <CardContainer :loadmore="loadMore"  :channelDatas="channelDataList" :busy="busy">
+         </CardContainer>
+        <!-- <CardMessage v-for="info in channelDataList" :info="info" :key="info.id">
+        </CardMessage> -->
         <!--       <CardMessage>
           <div class="content-wap">
             <p>
@@ -113,10 +109,6 @@
             <div class="btn">设计研究学院</div>
           </div>
         </CardMessage> -->
-
-        <div class="loadding" v-if="busy">
-          <img src="../../assets/loading-spinning-bubbles.svg" alt="" />
-        </div>
       </div>
 
       <div class="right-gudie">
@@ -126,7 +118,7 @@
 
         <Picture></Picture>
       </div>
-    </div>
+    </div>  
   </div>
 </template>
 
@@ -140,7 +132,7 @@ import CardMessage from "../test/CardMessage/CardMessage.vue";
 import Recommend from "@/components/Recommend/Recommend.vue";
 import Picture from "@/components/Picture/Picture.vue";
 import Menu from "@/components/GuideMenu/Menu.vue";
-
+import CardContainer from "@/components/CardContainer/CardContainer.vue";
 export default {
   components: {
     Menu,
@@ -151,21 +143,22 @@ export default {
     CardMessage,
     Recommend,
     Picture,
+    CardContainer
   },
   data() {
     return {
       menuList: [
         "yinpin",
         "50",
-        "50",
-        "tupian",
-        "yinpin",
-        "tupian",
-        "yinpin",
-        "tupian",
-        "yinpin",
-        "yinpin",
-        "yinpin",
+        "50"
+        // "tupian",
+        // "yinpin",
+        // "tupian",
+        // "yinpin",
+        // "tupian",
+        // "yinpin",
+        // "yinpin",
+        // "yinpin",
       ],
       List: ["全部", "热门", "精华", "设计经验", "素材分析", "分析", "排行榜"],
       busy: false,
@@ -183,12 +176,15 @@ export default {
       let result = await this.$api.reqChannelDataList(page);
 
       this.channelDataList.push(...result.thread_list)
+      
       this.busy=false
     },
     loadMore(){
 
-      this.busy=true
-      this.page++
+     this.busy=true
+
+     this.page++
+     
      this.getChannelDataList();
     
     }

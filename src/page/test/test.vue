@@ -1,49 +1,44 @@
 <template>
-  <div>
-    <CardMessage></CardMessage>
-    <!-- <a-back-top>
-      <div class="ant-back-top-inner">
-        UP
-      </div>
-    </a-back-top> -->
+  <div class="test">
+    <CardContainer :loadmore="loadMore"  :channelDatas="channelDataList" :busy="busy">
+    </CardContainer>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-import CardMessage from "../../page/test/CardMessage/CardMessage.vue";
-  export default {
-
-  mounted() {
-
-      this.getdata()
-
-    setTimeout(() => {
-      
-      this.getdata()
-
-    }, 2000);
+import CardContainer from "@/components/CardContainer/CardContainer.vue";
+export default {
+  data() {
+    return {
+      busy: true,
+      page: 1,
+      channelDataList: [],
+    };
   },
-
-    methods: {
-    async getdata(){
-
-     let result = await this.myAxios.post('/osapi/Channel/getChannelDataList',{
-       channel_id: "2",
-     page: 1
-     })
-
-      console.log(result);
-      
-     },
-    
+  mounted() {
+    this.getChannelDataList();
+  },
+  methods: {
+    async getChannelDataList() {
+      const {page} = this;
+      let result = await this.$api.reqChannelDataList(page);
+      this.channelDataList.push(...result.thread_list);
+      this.busy = false;
     },
-    components:{
-      CardMessage
-    }
-  }
+    loadMore() {
+      this.busy = true;
+      this.page++;
+      this.getChannelDataList();
+    },
+  },
+  components: {
+    CardContainer,
+  },
+};
 </script>
 
 <style lang='scss'>
-
- 
+.test{
+  display: flex;
+}
 </style>

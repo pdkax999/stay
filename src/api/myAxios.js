@@ -19,22 +19,19 @@ myAxios.interceptors.response.use(
   response => {
 
      if(response.status == 200){
+      
       return response.data.data
-     }else{
+     
+    }else{
 
       console.log(response.msg);
-      
-
-     }
-
-
-
     
+     }
   },
   error => {
 
-   
     return new Promise(() => {}) // 返回一个pending状态的promise => 中断promie链
+ 
   }
 )
 
